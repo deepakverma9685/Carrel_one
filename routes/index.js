@@ -14,7 +14,7 @@ router.post('/admin_login', function (req, res, next) {
     var pass = post.password;
 
     if (typeof name == "carreladmin" && typeof pass == "carrel1554") {
-        console.log("success")
+        console.log("success");
         res.redirect('/insert_questions');
     } else {
         message = 'Wrong Credentials.';
