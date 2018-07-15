@@ -13,6 +13,7 @@ var admin_login = require('./routes/admin_login');
 var get_classes = require('./routes/get_classes');
 var get_subjects = require('./routes/get_subjects');
 var inset_answers = require('./routes/insert_answer');
+var leader_board = require('./routes/leader_board');
 
 var app = express();
 
@@ -35,6 +36,7 @@ app.use('/admin_login',admin_login);
 app.use('/get_class',get_classes);
 app.use('/get_subject',get_subjects);
 app.use('/insert_answer',inset_answers);
+app.use('/leader_board',leader_board);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

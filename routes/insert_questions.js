@@ -46,7 +46,7 @@ router.post('/', function (req, res, nex) {
                         console.log(results)
                         res.json({
                             status: true,
-                            message: 'question inserted sucessfully',
+                            message: 'Question inserted sucessfully',
                             data:results
                         });
                     }
