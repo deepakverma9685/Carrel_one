@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var conncetion = require('../database/data_config');
-s
+
 router.get('/', function (req, res, nex) {
 
     conncetion.query('SELECT * FROM user_answered ORDER BY marks DESC', function (error, results) {

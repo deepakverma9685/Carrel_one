@@ -8,6 +8,7 @@ router.post('/',function (req,res) {
     var ans_list = [];
     var marks = 0;
 
+
     var str_question_id = req.body.question_id;
     var str_answers = req.body.answers;
     var class_id = req.body.class_id;
@@ -15,11 +16,10 @@ router.post('/',function (req,res) {
     var subject = req.body.subject;
     var subject_id = req.body.subject_id;
     var student_id = req.body.student_id;
-    var username =  req.body.username;
 
     var questions = str_question_id.split(",");
     for(var i = 0; i < questions.length; i++) {
-        que_list.push(questions[i])
+       que_list.push(questions[i])
 
     }
 
@@ -52,40 +52,24 @@ router.post('/',function (req,res) {
                     }
 
                 }
-
-                results_insert(marks,student_id);
-
             }
         }
     });
 
-    function results_insert(marksss,studnetid) {
 
-        console.log(">>>>>>>>>>>>>>>>>>>>>>>>  results_insert  ");
 
-        var answersssss = {
-            "username": username,
-            "clas": classes,
-            "marks": marksss,
-            "subjects":subject,
-            "student_id":studnetid
-        };
-
-        conncetion.query('INSERT INTO user_answered SET ?',[answersssss], function (error, results){
-            if(error){
-                console.log(error);
-                throw error;
-            }else {
-                console.log(results);
-                res.json({
-                    status: true,
-                    message: 'success'
-                });
-            }
-        });
-
-    }
+    conncetion.query('INSERT INTO user_answered SET ?',[ansers], function (error, results){
+        if(error){
+            console.log(error);
+            throw error;
+        }else {
+            console.log(results);
+            res.json({
+                status: true,
+                message: 'success'
+            });
+        }
+    });
 
 });
-
 module.exports = router;
