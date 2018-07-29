@@ -9,7 +9,7 @@ router.post('/', function (req, res) {
     var student = {
         "name": req.body.name,
         "school": req.body.school,
-        "class": req.body.class,
+        "classes": req.body.classes,
         "class_id": req.body.class_id,
         "mobile": req.body.mobile,
         "password": req.body.password,
