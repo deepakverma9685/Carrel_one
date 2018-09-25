@@ -2,7 +2,15 @@ var express = require('express');
 var router = express.Router();
 var conncetion = require('../database/data_config');
 
-router.post('/', function (req, res, nex) {
+router.get('/', function (req, res, nex) {
+    var message = '';
+    // res.render('insert_question.ejs',{message: message});
+    res.render('insert_question.ejs');
+
+});
+
+
+router.post('/post', function (req, res, nex) {
 
     var today = new Date();
 
@@ -24,10 +32,10 @@ router.post('/', function (req, res, nex) {
         conncetion.query('INSERT INTO questions SET ?',questions, function (error, results) {
             if(error){
                 console.log(error);
-                res.json({
+               /* res.json({
                     status:true,
                     message:'there are some error with query'
-                })
+                })*/
             }else{
                 console.log(results);
                 var get_last_id = results.insertId;
@@ -37,11 +45,7 @@ router.post('/', function (req, res, nex) {
                         console.log(error)
                     }else {
                         console.log(results)
-                        res.json({
-                            status: true,
-                            message: 'Question inserted sucessfully',
-                            data:results
-                        });
+                        res.redirect('/thank')
                     }
                 });
 
@@ -51,6 +55,3 @@ router.post('/', function (req, res, nex) {
 });
 
 module.exports = router;
-
-
-

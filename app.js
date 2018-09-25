@@ -15,6 +15,8 @@ var get_subjects = require('./routes/get_subjects');
 var inset_answers = require('./routes/insert_answer');
 var leader_board = require('./routes/leader_board');
 var get_answers = require('./routes/get_answers');
+var thankyou = require('./routes/thankyou');
+var insertwebque = require('./routes/insertqueweb');
 
 var app = express();
 
@@ -39,6 +41,10 @@ app.use('/get_subject',get_subjects);
 app.use('/insert_answer',inset_answers);
 app.use('/leader_board',leader_board);
 app.use('/get_answers',get_answers);
+app.use('/thank', thankyou);
+app.use('/insertque', insertwebque);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
